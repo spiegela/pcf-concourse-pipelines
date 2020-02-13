@@ -6,6 +6,8 @@ else
   set -e
 fi
 
+ls -l ./om-cli
+
 chmod +x om-cli/om
 CMD=./om-cli/om
 
