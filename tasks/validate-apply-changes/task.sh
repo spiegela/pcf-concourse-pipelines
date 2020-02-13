@@ -6,8 +6,8 @@ else
   set -e
 fi
 
-chmod +x om-cli/om
-CMD=./om-cli/om
+chmod +x om-cli/om-linux-*
+CMD=./om-cli/om-linux-*
 
 STAGED_PRODUCTS=$($CMD -e env/${OPSMAN_ENV_FILE_NAME} curl -p /api/v0/staged/products -s)
 PRODUCT_GUID=$(echo $STAGED_PRODUCTS | jq --arg PRODUCT_NAME $PRODUCT_NAME '.[] | select(.type | contains ($PRODUCT_NAME))' | jq '.guid' | tr -d '"')

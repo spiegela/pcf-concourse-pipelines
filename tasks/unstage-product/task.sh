@@ -6,8 +6,8 @@ else
   set -e
 fi
 
-chmod +x om-cli/om
-CMD=./om-cli/om
+chmod +x om-cli/om-linux-*
+CMD=./om-cli/om-linux-*
 
 VERSION=`cat pivnet-product/metadata.json | jq -r '.Release.Version'`
 

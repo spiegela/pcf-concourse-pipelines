@@ -6,8 +6,8 @@ else
   set -e
 fi
 
-chmod +x om-cli/om
-OM_CMD=./om-cli/om
+chmod +x om-cli/om-linux-*
+OM_CMD=./om-cli/om-linux-*
 
 SC_FILE_PATH=`find stemcells/ -name *.tgz`
 

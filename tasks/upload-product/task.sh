@@ -6,10 +6,8 @@ else
   set -e
 fi
 
-ls -l ./om-cli
-
-chmod +x om-cli/om
-CMD=./om-cli/om
+chmod +x om-cli/om-linux-*
+CMD=./om-cli/om-linux-*
 
 FILE_PATH=`find ./pivnet-product -name *.pivotal`
 
