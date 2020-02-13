@@ -13,8 +13,8 @@ INPUT_FILE_PATH=`find ./pivnet-product -name "*.pivotal"`
 FILE_NAME=`echo $INPUT_FILE_PATH | cut -d '/' -f3`
 OUTPUT_FILE_PATH=replicator-tile/$FILE_NAME
 
-chmod +x om-cli/om-linux
-OM_CMD=./om-cli/om-linux
+chmod +x om-cli/om
+OM_CMD=./om-cli/om
 
 if [[ ! -z "$REPLICATOR_NAME" ]]; then
   echo "Replicating the tile and adding " $REPLICATOR_NAME

@@ -6,9 +6,8 @@ else
   set -e
 fi
 
-chmod +x om-cli/om-linux
-
-CMD=./om-cli/om-linux
+chmod +x om-cli/om
+CMD=./om-cli/om
 
 printf 'waiting for OpsManager endpoint to be available'
 until $(curl --output /dev/null -k --silent --head --fail https://$OPS_MGR_HOST/setup); do

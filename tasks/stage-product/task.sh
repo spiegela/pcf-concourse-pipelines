@@ -6,8 +6,8 @@ else
   set -e
 fi
 
-chmod +x om-cli/om-linux
-CMD=./om-cli/om-linux
+chmod +x om-cli/om
+CMD=./om-cli/om
 
 if [[ (! -z "$DEPENDENCY_PRODUCT_TILES") && ("null" != "$DEPENDENCY_PRODUCT_TILES") ]]; then
   STAGED_PRODUCTS=$($CMD -e env/${OPSMAN_ENV_FILE_NAME} curl -s -p /api/v0/staged/products)
