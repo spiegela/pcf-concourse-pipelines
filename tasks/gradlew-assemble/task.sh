@@ -10,4 +10,5 @@ CMD=./gradlew
 
 pushd project-repo
 $CMD --no-daemon assemble
+ls -l ./build/libs
 popd
