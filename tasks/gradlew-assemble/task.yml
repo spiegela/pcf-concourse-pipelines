@@ -17,7 +17,6 @@ inputs:
 
 outputs:
   - name: project-libs
-    path: build/libs
 
 run:
   path: pipelines-repo/tasks/gradlew-assemble/task.sh
