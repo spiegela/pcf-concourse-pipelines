@@ -1,0 +1,24 @@
+---
+
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: cfplatformeng/tile-generator
+    tag: latest
+
+params:
+  DEBUG:
+  VERSION:
+
+inputs:
+  - name: pipelines-repo
+  - name: tile-project-repo
+
+outputs:
+  - name: tile-product
+    path: tile-project-repo/out
+
+run:
+  path: pipelines-repo/tasks/tile-build/task.sh
