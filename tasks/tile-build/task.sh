@@ -9,6 +9,13 @@ fi
 CMD=tile
 
 pushd tile-project-repo
-$CMD build
-cp product/*.pivotal out
+
+if [ "${VERSION}" == "" ]; then
+  $CMD build
+else
+  $CMD build "${VERSION}"
+fi
+
+cp product/*.pivotal ../tile-product
+
 popd

@@ -18,7 +18,6 @@ inputs:
 
 outputs:
   - name: tile-product
-    path: tile-project-repo/out
 
 run:
   path: pipelines-repo/tasks/tile-build/task.sh

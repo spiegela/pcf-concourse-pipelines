@@ -13,6 +13,13 @@ else
     SOURCE="source"
 fi
 
-cp -pr "${SOURCE}" "${DESTINATION}"
+if [[ "${TARGET}" != "" ]]
+then
+    DEST="destination/${TARGET}"
+else
+    DEST="destination"
+fi
 
-ls -l "${DESTINATION}"
+cp -pr "${SOURCE}" "${DEST}"
+
+ls -l "${DEST}"

@@ -8,10 +8,12 @@ image_resource:
 params:
   DEBUG:
   FILENAME:
-  DESTINATION:
+  TARGET:
 
 inputs:
+- name: pipelines-repo
 - name: source
+- name: destination
 
 run:
   path: pipelines-repo/tasks/copy-path/task.sh
