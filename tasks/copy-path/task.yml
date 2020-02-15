@@ -1,0 +1,17 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: rjain/buildbox}
+
+params:
+  DEBUG:
+  FILENAME:
+  DESTINATION:
+
+inputs:
+- name: source
+
+run:
+  path: pipelines-repo/tasks/copy-path/task.sh
