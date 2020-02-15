@@ -6,19 +6,27 @@ else
   set -e
 fi
 
-CMD=tile
+PIP_CMD=pip
+TILE_CMD=tile
+
+chmod +x ./jq/jq-linux64
+JQ_CMD=./jq/jq-linux64
+
+$PIP_CMD install pyyaml
 
 pushd tile-project-repo
+  if [ "${VERSION}" == "" ]; then
+    $TILE_CMD build
+  else
+    $TILE_CMD build "${VERSION}"
+  fi
+  METADATA_FILE="product/metadata/${PRODUCT_NAME}.yml"
+  METADATA_JSON=$(python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)' < "${METADATA_FILE}")
+popd
 
-if [ "${VERSION}" == "" ]; then
-  $CMD build
-else
-  $CMD build "${VERSION}"
-fi
+pushd tile-product
+  echo ${METADATA_JSON} > manifest.json
+  VERSION=$(../$JQ_CMD '.product_version' < manifest.json | sed -e 's/"//g')
 
-METADATA_FILE="product/metadata/${PRODUCT_NAME}.yml"
-YAML_TO_JSON=("python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'")
-echo ${METADATA_JSON} > manifest.json
-VERSION=$(echo ${METADATA_JSON} | jq '.product_version' | sed -e 's/"//g')
-tar czfvp "../tile-product/ecs-service-broker-${VERSION}.tgz" "ecs-service-broker-${VERSION}.pivotal" manifest.json
+  tar czfvp "ecs-service-broker-${VERSION}.tgz" "../tile-project-repo/product/ecs-service-broker-${VERSION}.pivotal" manifest.json
 popd
