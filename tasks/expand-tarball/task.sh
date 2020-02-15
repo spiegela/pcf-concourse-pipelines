@@ -15,6 +15,7 @@ else
     DEST="destination"
 fi
 
-tar zxfvp -C "${DEST}" "${SOURCE}"
-
-ls -l "${DEST}"
+pushd $DEST
+  tar zxfvp ../"${SOURCE}"
+  ls -l
+popd
