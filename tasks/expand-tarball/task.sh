@@ -8,11 +8,14 @@ fi
 
 SOURCE="source/${FILENAME}"
 
-if [[ "${TARGET}" != "" ]]
-then
-    DEST="destination/${TARGET}"
+if [[ "${INTO_SOURCE}" == "true" ]]; then
+  DEST=source
 else
-    DEST="destination"
+  DEST=destination
+fi
+
+if [[ "${TARGET}" != "" ]]; then
+    DEST="$DEST/${TARGET}"
 fi
 
 pushd $DEST

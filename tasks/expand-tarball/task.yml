@@ -9,6 +9,7 @@ params:
   DEBUG:
   FILENAME:
   TARGET:
+  INTO_SOURCE:
 
 inputs:
 - name: pipelines-repo
