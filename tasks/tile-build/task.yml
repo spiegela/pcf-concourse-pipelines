@@ -10,6 +10,7 @@ image_resource:
 
 params:
   DEBUG:
+  PRODUCT_NAME:
   VERSION:
 
 inputs:
