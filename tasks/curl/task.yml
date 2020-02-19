@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: rjain/buildbox}
+
+params:
+  URL:
+  METHOD: GET
+  BODY:
+  OUTPUT:
+  INSECURE:
+  VERBOSE:
+
+inputs:
+  - name: pipelines-repo
+
+outputs:
+  - name: output
+
+run:
+  path: pipelines-repo/tasks/curl/task.sh
