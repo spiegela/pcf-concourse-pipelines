@@ -38,4 +38,4 @@ if [[ ! -z "$CONFIG_FILE_NAME" && null != "$CONFIG_FILE_NAME" ]]; then
   $OM_CMD -e env/$OPSMAN_ENV_FILE_NAME curl -s -p /api/v0/installations -x POST -d "$apply_changes_config"
 fi
 
-$OM_CMD -e env/$OPSMAN_ENV_FILE_NAME apply-changes --ignore-warnings true
+$OM_CMD -e env/$OPSMAN_ENV_FILE_NAME apply-changes --reattach --ignore-warnings true
