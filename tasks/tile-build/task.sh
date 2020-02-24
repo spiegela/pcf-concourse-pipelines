@@ -29,6 +29,6 @@ pushd tile-product
   echo ${METADATA_JSON} > manifest.json
   VERSION=$(../$JQ_CMD '.product_version' < manifest.json | sed -e 's/"//g')
   mv ../tile-project-repo/product/ecs-service-broker-${VERSION}.pivotal .
-
+  cp manifest.json ecs-service-broker-manifest-${VERSION}.json
   tar czfvp "ecs-service-broker-${VERSION}.tgz" "ecs-service-broker-${VERSION}.pivotal" manifest.json
 popd
