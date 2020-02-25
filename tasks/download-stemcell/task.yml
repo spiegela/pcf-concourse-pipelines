@@ -11,7 +11,9 @@ params:
   PIVNET_API_TOKEN:
   IAAS:
   IAAS_TYPE:
+  PRODUCT_SLUG:
   STEMCELL_TYPE:
+  STEMCELL_VERSION:
 
 inputs:
 - name: pivnet-product
