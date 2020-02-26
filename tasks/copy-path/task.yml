@@ -13,8 +13,6 @@ params:
 inputs:
 - name: pipelines-repo
 - name: source
-
-outputs:
 - name: destination
 
 run:
