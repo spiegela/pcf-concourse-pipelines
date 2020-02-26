@@ -10,6 +10,7 @@ params:
   DEBUG:
   OPSMAN_ENV_FILE_NAME:
   PRODUCT_NAME:
+  VERSION:
 
 inputs:
 - name: pipelines-repo

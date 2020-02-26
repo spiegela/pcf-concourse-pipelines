@@ -24,7 +24,9 @@ if [[ (! -z "$DEPENDENCY_PRODUCT_TILES") && ("null" != "$DEPENDENCY_PRODUCT_TILE
   done
 fi
 
-VERSION=`cat pivnet-product/metadata.json | jq '.Release.Version' | tr -d '"'`
+if [ "$VERSION" == "" ]; then
+  VERSION=`cat pivnet-product/metadata.json | jq '.Release.Version' | tr -d '"'`
+fi
 
 RELEASE_NAME=`$CMD -e env/${OPSMAN_ENV_FILE_NAME} available-products | grep $PRODUCT_NAME | grep $VERSION`
 

@@ -11,6 +11,7 @@ params:
   OPSMAN_ENV_FILE_NAME:
   PRODUCT_NAME:
   DEPENDENCY_PRODUCT_TILES:
+  VERSION:
 
 inputs:
 - name: pipelines-repo

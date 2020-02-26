@@ -9,7 +9,9 @@ fi
 chmod +x om-cli/om-linux-*
 CMD=./om-cli/om-linux-*
 
-VERSION=`cat pivnet-product/metadata.json | jq -r '.Release.Version'`
+if [ "$VERSION" == "" ]; then
+  VERSION=`cat pivnet-product/metadata.json | jq '.Release.Version' | tr -d '"'`
+fi
 
 RELEASE_NAME=`$CMD -e env/${OPSMAN_ENV_FILE_NAME} curl -s -p /api/v0/available_products | jq --arg product_name $PRODUCT_NAME '.[] | select(.name == $product_name)'`
 
