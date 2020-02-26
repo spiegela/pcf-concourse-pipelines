@@ -27,7 +27,7 @@ set -e
 
 if [[ -z "$RESPONSE" ]]; then
   STEMCELL_NAME="bosh-stemcell-${STEMCELL_VERSION}-$IAAS_TYPE-ubuntu-${STEMCELL_TYPE}-go_agent.tgz"
-  wget --show-progress https://s3.amazonaws.com/bosh-core-stemcells/$IAAS/$STEMCELL_NAME
+  wget --show-progress https://bosh-core-stemcells.s3-accelerate.amazonaws.com/${STEMCELL_VERSION}/$STEMCELL_NAME
 else
   $PIVNET_CLI download-product-files -p "${PRODUCT_SLUG}" -r "${STEMCELL_VERSION}" -g "*${IAAS_TYPE}*" --accept-eula
 fi
